@@ -1,0 +1,146 @@
+[
+  {
+    "text": "sldkjfasldkfj",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "complaint",
+      "confidence": 0.0001542290556244552
+    }
+  },
+  {
+    "text": "blablablubb",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "complaint",
+      "confidence": 0.0001407021190971136
+    }
+  },
+  {
+    "text": "ajdslfjalsdj",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "thank_you",
+      "confidence": 0.00030704648816026747
+    }
+  },
+  {
+    "text": "?",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.004200855735689402
+    }
+  },
+  {
+    "text": "!§$%&/(",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "greet",
+      "confidence": 0.004200855735689402
+    }
+  },
+  {
+    "text": "lorem ipsum",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "thank_you",
+      "confidence": 8.856449130689725e-05
+    }
+  },
+  {
+    "text": "asdfghjkl",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "ask_pricing",
+      "confidence": 4.705593892140314e-05
+    }
+  },
+  {
+    "text": "kjwqelkjaqwlke",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "goodbye",
+      "confidence": 0.0001364147465210408
+    }
+  },
+  {
+    "text": "hjgdasjgd",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "thank_you",
+      "confidence": 0.00010429072426632047
+    }
+  },
+  {
+    "text": "zmxncbv",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "complaint",
+      "confidence": 9.875490650301799e-05
+    }
+  },
+  {
+    "text": "unlogischer Text",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "thank_you",
+      "confidence": 0.00017384659440722317
+    }
+  },
+  {
+    "text": "iusadhfoisad",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "complaint",
+      "confidence": 0.00010468816617503762
+    }
+  },
+  {
+    "text": "ksdjfhsdkjf",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "complaint",
+      "confidence": 0.0004513573949225247
+    }
+  },
+  {
+    "text": "dfsdfsdf",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "complaint",
+      "confidence": 7.923564407974482e-05
+    }
+  },
+  {
+    "text": "fgdhfgjfgjh",
+    "intent": "nlu_fallback",
+    "intent_prediction": {
+      "name": "thank_you",
+      "confidence": 9.488299838267267e-05
+    }
+  },
+  {
+    "text": "Der Termin passt mir nicht mehr",
+    "intent": "change_appointment",
+    "intent_prediction": {
+      "name": "cancel_appointment",
+      "confidence": 0.7520471215248108
+    }
+  },
+  {
+    "text": "Können wir einen neuen Zeitpunkt finden?",
+    "intent": "change_appointment",
+    "intent_prediction": {
+      "name": "reschedule_appointment",
+      "confidence": 0.7956153154373169
+    }
+  },
+  {
+    "text": "Ich hab's mir anders überlegt",
+    "intent": "cancel_form",
+    "intent_prediction": {
+      "name": "cancel_request",
+      "confidence": 0.7626327872276306
+    }
+  }
+]

@@ -1,0 +1,9 @@
+version: "3.1"
+
+stories:
+- story: Termin stornieren ohne vorherige Buchung
+  steps:
+    - user: |
+        Ich möchte den Termin stornieren
+      intent: cancel_appointment
+    - action: action_cancel_appointment

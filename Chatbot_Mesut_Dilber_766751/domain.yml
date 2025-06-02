@@ -1,0 +1,256 @@
+version: "3.1"
+
+intents:
+  - greet
+  - contact
+  - services
+  - opening_hours
+  - fallback
+  - ask_pricing
+  - ask_duration
+  - ask_location
+  - complaint
+  - feedback
+  - book_appointment
+  - cancel_appointment
+  - smalltalk
+  - goodbye
+  - ask_email
+  - ask_phone
+  - technical_issue
+  - request_callback
+  - reset_password
+  - job_openings
+  - apply_job
+  - faq_payment
+  - faq_delivery
+  - track_request
+  - cancel_request
+  - change_appointment
+  - reschedule_appointment
+  - thank_you
+  - not_satisfied
+  - satisfied
+  - ask_language
+  - switch_to_human
+  - restart_conversation
+  - cancel_callback
+  - cancel_form
+  - deny
+
+entities:
+  - service_type
+  - phone_number
+  - time
+  - date
+  - appointment_reason
+
+responses:
+  utter_greet:
+    - text: "Hallo! 👋 Wie kann ich dir helfen?"
+
+  utter_contact:
+    - text: "📧 Du kannst uns per E-Mail unter support@firma.de erreichen oder uns anrufen unter ☎️ 123-456-789."
+
+  utter_services:
+    - text: "🛠️ Wir bieten IT-Support, Netzwerkinstallationen und Softwareentwicklung an."
+
+  utter_opening_hours:
+    - text: "⏰ Unsere Öffnungszeiten sind Montag bis Freitag von 9:00 bis 18:00 Uhr."
+
+  utter_fallback:
+    - text: "❓ Entschuldigung, ich habe das nicht verstanden. Kannst du die Frage bitte noch einmal stellen?"
+
+  utter_ask_pricing:
+    - text: "💰 Unsere Preise variieren je nach Dienstleistung. Möchtest du etwas Bestimmtes wissen?"
+
+  utter_ask_duration:
+    - text: "⏳ Die Dauer hängt vom Problem ab, meistens zwischen 30 Minuten und 2 Stunden."
+
+  utter_ask_location:
+    - text: "📍 Wir sitzen in der Musterstraße 1, 12345 Beispielstadt."
+
+  utter_complaint:
+    - text: "😟 Es tut uns leid, dass du unzufrieden bist. Was genau ist passiert?"
+
+  utter_feedback:
+    - text: "🙏 Danke für dein Feedback! Wir wissen das sehr zu schätzen."
+
+  utter_book_appointment:
+    - text: "📅 Ich kann dir gerne einen Termin vorschlagen. Wann passt es dir?"
+
+  utter_cancel_appointment:
+    - text: "❌ Okay, wir stornieren deinen Termin. Möchtest du einen neuen buchen?"
+      buttons:
+        - title: "📅 Ja, neuen Termin buchen"
+          payload: "/book_appointment"
+        - title: "❌ Nein, danke"
+          payload: "/deny"
+
+  utter_smalltalk:
+    - text: "😄 Mir geht’s gut, danke der Nachfrage! Was kann ich für dich tun?"
+
+  utter_goodbye:
+    - text: "👋 Auf Wiedersehen! Bis zum nächsten Mal."
+
+  utter_ask_email:
+    - text: "📧 Unsere E-Mail-Adresse ist support@firma.de"
+
+  utter_ask_phone:
+    - text: "📞 Du erreichst uns telefonisch unter 123-456-789."
+
+  utter_technical_issue:
+    - text: "💻 Kannst du mir dein technisches Problem bitte genauer beschreiben?"
+
+  utter_request_callback:
+    - text: "📲 Wir rufen dich gerne zurück. Wann passt es dir am besten?"
+
+  utter_reset_password:
+    - text: "🔐 Du kannst dein Passwort über den Link 'Passwort vergessen' zurücksetzen."
+
+  utter_job_openings:
+    - text: "🧑‍💼 Aktuelle Stellenangebote findest du auf unserer Karriereseite."
+
+  utter_apply_job:
+    - text: "📝 Du kannst dich direkt über unsere Website bewerben."
+
+  utter_faq_payment:
+    - text: "💳 Wir akzeptieren PayPal, Kreditkarte und Überweisung."
+
+  utter_faq_delivery:
+    - text: "🚚 Lieferungen erfolgen innerhalb von 3–5 Werktagen."
+
+  utter_track_request:
+    - text: "📦 Du kannst deine Anfrage mit deiner Ticketnummer hier verfolgen: support.firma.de/status"
+
+  utter_cancel_request:
+    - text: "🗑️ Deine Anfrage wurde storniert."
+
+  utter_change_appointment:
+    - text: "🔄 Kein Problem, wann möchtest du den Termin ändern?"
+
+  utter_reschedule_appointment:
+    - text: "📆 Ich habe den Termin verschoben. Eine Bestätigung ist unterwegs."
+
+  utter_thank_you:
+    - text: "🙌 Gerne geschehen - wir helfen immer gerne weiter!"
+    - text: "Gern geschehen! 😊"
+
+  utter_not_satisfied:
+    - text: "😞 Es tut uns leid, dass du nicht zufrieden bist. Wir kümmern uns darum."
+
+  utter_satisfied:
+    - text: "🎉 Super! Das freut uns sehr."
+
+  utter_ask_language:
+    - text: "🌐 Wir unterstützen derzeit Deutsch und Englisch. Welche Sprache bevorzugst du?"
+
+  utter_switch_to_human:
+    - text: "👨‍💼 Ich leite dich an einen menschlichen Kollegen weiter."
+
+  utter_restart_conversation:
+    - text: "🔁 Kein Problem, wir starten von vorne. Was möchtest du wissen?"
+
+  utter_ask_appointment_date:
+    - text: "📅 Für welches Datum möchtest du den Termin?"
+
+  utter_ask_appointment_time:
+    - text: "🕒 Zu welcher Uhrzeit passt es dir?"
+
+  utter_ask_appointment_reason:
+    - text: "❔ Worum geht es bei dem Termin?"
+
+  utter_submit_appointment_form:
+    - text: "✅ Ich habe deinen Termin am {appointment_date} um {appointment_time} für '{appointment_reason}' vorgemerkt."
+
+  utter_ask_callback_time:
+    - text: "🕑 Wann dürfen wir dich zurückrufen?"
+
+  utter_ask_callback_phone:
+    - text: "📱 Unter welcher Telefonnummer erreichen wir dich?"
+
+  utter_submit_callback_form:
+    - text: "📞 Perfekt, wir rufen dich um {callback_time} unter {callback_phone} zurück."
+
+  utter_cancel_request_alt:
+    - text: "📵 Okay, ich habe den Rückruf abgebrochen. Brauchst du noch etwas anderes?"
+
+  utter_cancel_callback:
+    - text: "📵 Alles klar, dein Rückruf wurde storniert. Kann ich dir sonst helfen?"
+
+  utter_no_problem:
+    - text: "Alles klar! Falls du später doch noch einen brauchst, sag einfach Bescheid 😊"
+
+slots:
+  service_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: service_type
+
+  appointment_date:
+    type: text
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: date
+        conditions:
+          - active_loop: appointment_form
+
+  appointment_time:
+    type: text
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: time
+        conditions:
+          - active_loop: appointment_form
+
+  appointment_reason:
+    type: text
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: appointment_reason
+        conditions:
+          - active_loop: appointment_form
+
+  callback_time:
+    type: text
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: time
+        conditions:
+          - active_loop: callback_form
+
+  callback_phone:
+    type: text
+    initial_value: null
+    mappings:
+      - type: from_entity
+        entity: phone_number
+        conditions:
+          - active_loop: callback_form
+
+forms:
+  appointment_form:
+    required_slots:
+      - appointment_date
+      - appointment_time
+      - appointment_reason
+
+  callback_form:
+    required_slots:
+      - callback_time
+      - callback_phone
+
+actions:
+  - action_check_service
+  - action_handle_complaint
+  - action_collect_feedback
+  - action_book_appointment
+  - action_cancel_appointment
+  - action_cancel_callback
+  - action_handle_interrupt
+  - action_default_fallback

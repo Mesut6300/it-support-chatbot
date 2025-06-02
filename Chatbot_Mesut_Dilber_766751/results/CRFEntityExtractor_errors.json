@@ -1,0 +1,71 @@
+[
+  {
+    "text": "Was bieten Sie an?",
+    "entities": [
+      {
+        "start": 15,
+        "end": 17,
+        "value": "an",
+        "entity": "service_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "service_type",
+        "start": 15,
+        "end": 17,
+        "confidence_entity": 0.993712842464447,
+        "value": "an",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Ich brauche einen Termin für eine Beratung",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "appointment_reason",
+        "start": 34,
+        "end": 42,
+        "confidence_entity": 0.553791913966871,
+        "value": "Beratung",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Ich würde gerne einen Termin buchen am Dienstag um 11 Uhr",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "date",
+        "start": 39,
+        "end": 47,
+        "confidence_entity": 0.5777785812865545,
+        "value": "Dienstag",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "time",
+        "start": 51,
+        "end": 57,
+        "confidence_entity": 0.5660052449563392,
+        "value": "11 Uhr",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

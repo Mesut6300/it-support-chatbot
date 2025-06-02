@@ -1,0 +1,26 @@
+# config.yml
+language: "de"  # Die Sprache meines Bots
+
+pipeline:
+- name: "WhitespaceTokenizer"    # Tokenizer, um die Nachricht in Wörter zu zerlegen
+- name: "RegexFeaturizer"    # Extra um Features aus der Nachricht zu extrahieren
+- name: "CRFEntityExtractor"    # Extrahiert die Entitäten
+- name: "CountVectorsFeaturizer"    # Zählt die Vorkommen von Wörtern
+- name: "DIETClassifier"    # Klassifikator für die Intents und Entitäten
+- name: "EntitySynonymMapper"    # Kann Synonyme für Entitäten erkennen
+- name: "ResponseSelector"    # Wählt die passende Antwort aus
+- name: "FallbackClassifier"    # Wird verwendet, wenn der Bot die Eingabe nicht versteht
+  threshold: 0.7
+  ambiguity_threshold: 0.1
+
+policies:
+- name: "MemoizationPolicy"         # Merkt sich exakt bekannte Gesprächsverläufe
+- name: "TEDPolicy"                 # Trainiert den Bot, um aus dem Dialogkontext zu lernen
+  max_history: 5
+  epochs: 100
+- name: "RulePolicy"                # Setzt fest definierte Regeln für Dialogflüsse
+  core_fallback_threshold: 0.4      # Wenn der Bot sich nicht sicher ist
+  core_fallback_action_name: "action_default_fallback"
+  enable_fallback_prediction: true
+assistant_id: 20250526-233709-bitter-switch
+

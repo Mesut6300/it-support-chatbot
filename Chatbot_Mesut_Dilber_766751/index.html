@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8">
+			<title>Support-Bot🤖</title>
+			<link rel="stylesheet" href="css/botui.min.css" />
+			<link rel="stylesheet" href="css/botui-theme-default.css" />
+			<style>
+         body {
+         background: #a0eec0;
+         color: #000000;
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 2rem;
+         }
+         .botui-message-content {
+         background-color: #000000;
+         color: #ffffff;
+         border-radius: 16px;
+         font-weight: 500;
+         padding: 12px 16px;
+         margin-bottom: 8px;
+         box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+         font-size: 16px;
+         }
+         .botui-message-content.human {
+         background-color: #000000;
+         color: #ffffff;
+         border-radius: 16px;
+         font-weight: 500;
+         }
+         .botui-actions-buttons-button {
+         background-color: #000000;
+         color: #ffffff;
+         border: none;
+         border-radius: 6px;
+         padding: 8px 16px;
+         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+         }
+         .logo-container {
+         position: fixed;
+         top: 60px;
+         right: 40px;
+         z-index: 9999;
+         }
+         .logo-container img {
+         height: 200px;
+         filter: drop-shadow(0 0 6px rgba(0,0,0,0.2));
+         }
+         #botui-app {
+         background-color: #a0eec0 !important;
+         padding: 3rem 4rem;
+         border-radius: 100px;
+         box-shadow: none;
+         max-width: 800px;
+         margin: 450px auto 200px auto;
+         color: #000000;
+         }
+         .botui-container {
+         background-color: #a0eec0 !important;
+         }
+      </style>
+		</head>
+		<body>
+			<body>
+				<body>
+					<!-- 🖼️ Logo oben rechts (leicht tiefer & größer) -->
+					<div class="logo-container">
+						<img src="logo.png" alt="IT-Service Logo">
+						</div>
+						<div id="botui-app">
+							<bot-ui></bot-ui>
+						</div>
+					</body>
+					<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
+					<script src="js/botui.min.js"></script>
+					<script>
+      const botui = new BotUI('botui-app');
+      
+      function sendToRasa(msg) {
+        return fetch('http://localhost:5005/webhooks/rest/webhook', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            sender: 'user',
+            message: msg
+          })
+        }).then(response => response.json());
+      }
+      
+      function handleUserInput() {
+  botui.action.text({
+    action: {
+      placeholder: 'Schreib mir etwas...'
+    }
+  }).then(res => {
+    const message = res.value;
+
+    sendToRasa(message).then(response => {
+      response.forEach(r => {
+        if (r.text) {
+          botui.message.add({ content: r.text });
+        }
+
+        // 👇 NEU: Fallback-Buttons oder andere Buttons anzeigen
+        if (r.buttons) {
+          botui.action.button({
+            action: r.buttons.map(btn => ({
+              text: btn.title,
+              value: btn.payload
+            }))
+          }).then(function (res) {
+            sendToRasa(res.value).then(response => {
+              response.forEach(next => {
+                if (next.text) {
+                  botui.message.add({ content: next.text });
+                }
+              });
+              handleUserInput(); // Wieder warten
+            });
+          });
+        }
+      });
+
+      // Nur neu aufrufen, wenn keine Buttons kamen
+      if (!response.some(r => r.buttons)) {
+        handleUserInput();
+      }
+    });
+  });
+}
+
+      // Start mit Begrüßung + Avatar + Button-Auswahl
+      function startMenu() {
+    botui.message.add({
+  type: 'html',
+  content: `
+    
+						<div style="
+      display: flex;
+      align-items: center;
+    ">
+							<img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png"
+           width="30"
+           height="30"
+           style="margin-right: 10px;" />
+							<span>
+								<strong>Support-Bot:</strong> 👋 Hallo! Ich bin dein Support-Bot.
+							</span>
+						</div>
+  `
+})
+      .then(function () {
+      return botui.message.add({
+        content: 'Was möchtest du wissen?'
+      });
+      })
+      .then(function () {
+      return botui.action.button({
+      action: [
+      { text: '📞 Kontaktmöglichkeiten', value: 'Wie kann ich jemanden erreichen?' },
+      { text: '⏰ Öffnungszeiten', value: 'zeiten' },
+      { text: '🛠️ Services', value: 'Was bieten Sie [an](service_type)?' },
+      { text: '📅 Vor-Ort-Termin buchen', value: 'Ich möchte einen Vor-Ort-Termin buchen' },
+      { text: '📲 Rückruf anfordern', value: 'Ich möchte zurückgerufen werden' },
+      { text: '😠 Beschwerde', value: 'Ich bin unzufrieden mit dem Support' },
+      { text: '🔐 Passwort zurücksetzen', value: 'Ich habe mein Passwort vergessen' },
+      { text: '💬 Ich will schreiben', value: 'text' }
+      ]
+      });
+      
+      })
+      .then(function (res) {
+      if (res.value === 'text') {
+        handleUserInput();
+      } else {
+        sendToRasa(res.value).then(function (rasaResponses) {
+          rasaResponses.forEach(function (response) {
+            botui.message.add({ content: response.text });
+          });
+      
+          botui.action.button({
+            action: [
+              { text: '⬅️ Zurück zum Start', value: 'back' },
+              { text: '🔁 Weiter fragen', value: 'continue' }
+            ]
+          }).then(function (res) {
+            if (res.value === 'back') {
+              startMenu(); // Jetzt funktioniert’s!
+            } else {
+              handleUserInput();
+            }
+          });
+        });
+      }
+      });
+      }
+      startMenu();
+   
+					</script>
+				</body>
+			</html>

@@ -1,0 +1,7 @@
+version: "3.1"
+stories:
+- story: Termin stornieren ohne vorherige Buchung (/Users/mesutdilber/Documents/rasa-bot/tests/test_cancel_appointment.yml)
+  steps:
+  - intent: cancel_appointment
+  - action: action_cancel_appointment
+  - action: action_listen  # predicted: action_deactivate_loop

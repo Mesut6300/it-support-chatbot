@@ -1,0 +1,580 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - Hallo
+      - Hi
+      - Guten Morgen
+      - Hey, was geht?
+      - Hey
+      - Servus
+      - Grüß dich
+      - Na, alles klar?
+      - Hallo zusammen
+      - Hi Leute
+      - Guten Tag
+      - Moin
+      - Was geht?
+      - Yo
+      - Schönen Tag
+
+  - intent: contact
+    examples: |
+      - Wie kann ich jemanden erreichen?
+      - Wie erreiche ich den Support?
+      - Wie kontaktiere ich das Team?
+      - Wie komme ich an einen Ansprechpartner?
+      - Wie kann ich euch anschreiben?
+      - Wo finde ich eure Kontaktdaten?
+      - Ich brauche Hilfe, wie kontaktiere ich euch?
+      - Habt ihr eine E-Mail-Adresse?
+      - Wie lautet eure Telefonnummer?
+      - Wer ist zuständig für Anfragen?
+
+  - intent: services
+    examples: |
+      - Was bieten Sie an?
+      - Welche Dienstleistungen gibt es?
+      - Was sind Ihre Services?
+      - Können Sie mir bei [IT-Support](service_type) helfen?
+      - Bieten Sie auch [Cloudlösungen](service_type) an?
+      - Ich interessiere mich für [Softwareentwicklung](service_type).
+      - Habt ihr [Netzwerkinstallationen](service_type) im Angebot?
+      - Ich suche Hilfe im Bereich [IT-Support](service_type).
+      - Was umfasst der Bereich Softwareentwicklung?
+      - Welche Dienstleistungen bieten Sie im Bereich IT-Support an?
+      - Können Sie mir bei [Softwareentwicklung](service_type) helfen?
+      - Ich brauche Infos zu [Netzwerkinstallationen](service_type).
+      - Was umfasst Ihr Angebot im Bereich IT-Support?
+      - Gibt es bei Ihnen [Softwareentwicklung](service_type)?
+      - Ich interessiere mich für [Netzwerkinstallationen](service_type).
+      - Was genau fällt unter IT-Support?
+      - Unterstützen Sie mich auch bei [Softwareentwicklung](service_type)?
+      - Welche Services haben Sie im Bereich [Netzwerkinstallationen](service_type)?
+      - Können Sie [IT-Support](service_type) anbieten?
+      - Was kann ich bei [Softwareentwicklung](service_type) erwarten?
+      - Erledigen Sie auch [Netzwerkinstallationen](service_type)?
+
+  - intent: opening_hours
+    examples: |
+      - Wann haben Sie geöffnet?
+      - Was sind die Öffnungszeiten?
+      - Wann kann ich Sie erreichen?
+      - Zu welchen Zeiten seid ihr da?
+      - Wann ist das Büro besetzt?
+      - Habt ihr am Wochenende offen?
+      - Wie lange habt ihr heute geöffnet?
+      - Kann ich euch auch abends erreichen?
+      - Wann ist jemand erreichbar?
+      - Gibt es feste Öffnungszeiten?
+
+  - intent: fallback
+    examples: |
+      - Ich verstehe das nicht?
+      - Wiederhole das bitte
+      - Entschuldigung, was hast du gesagt?
+      - Das habe ich nicht verstanden.
+      - Was meinst du damit?
+      - Nochmal bitte.
+      - Kannst du das anders formulieren?
+      - Hä?
+      - Was soll das heißen?
+      - Das ergibt keinen Sinn für mich
+
+  - intent: nlu_fallback
+    examples: |
+      - sldkjfasldkfj
+      - blablablubb
+      - ajdslfjalsdj
+      - ?
+      - !§$%&/(
+      - lorem ipsum
+      - asdfghjkl
+      - kjwqelkjaqwlke
+      - hjgdasjgd
+      - zmxncbv
+      - unlogischer Text
+      - iusadhfoisad
+      - ksdjfhsdkjf
+      - dfsdfsdf
+      - fgdhfgjfgjh
+
+  - intent: ask_pricing
+    examples: |
+      - Was kostet das?
+      - Wie viel verlangt ihr?
+      - Gibt es einen Preis für den Service?
+      - Was sind eure Preise?
+      - Was kostet mich das ungefähr?
+      - Wie teuer ist das Ganze?
+      - Muss ich dafür extra zahlen?
+      - Gibt’s da feste Preise?
+      - Was zahle ich für die Leistung?
+      - Könnt ihr mir sagen, was das kostet?
+      - Sind da Zusatzkosten dabei?
+
+  - intent: ask_duration
+    examples: |
+      - Wie lange dauert so eine Reparatur?
+      - Wie viel Zeit braucht ihr ungefähr?
+      - Ist das schnell erledigt?
+      - Wie lange bin ich da ungefähr beschäftigt?
+      - Ist das in einer Stunde erledigt?
+      - Wie viel Zeit muss ich einplanen?
+      - Kann ich das in der Mittagspause machen lassen?
+      - Zieht sich das länger hin?
+      - Dauert das mehrere Stunden?
+      - Muss ich da viel Wartezeit einplanen?
+
+  - intent: ask_location
+    examples: |
+      - Wo ist euer Büro?
+      - Wie komme ich zu euch?
+      - Habt ihr einen Standort?
+      - Habt ihr einen Laden in der Nähe?
+      - Wo genau seid ihr zu finden?
+      - Gibt’s bei euch vor Ort ein Büro?
+      - Ist das gut erreichbar?
+      - Brauch ich einen Termin, um vorbeizukommen?
+      - Gibt es Parkplätze bei euch?
+      - Seid ihr zentral gelegen?
+
+  - intent: complaint
+    examples: |
+      - Ich bin unzufrieden mit dem Support
+      - Das hat überhaupt nicht funktioniert!
+      - Ich möchte mich beschweren
+      - Ich bin echt enttäuscht
+      - Das war nicht wie erwartet
+      - Ich habe ein Problem mit eurem Service
+      - Das lief leider gar nicht gut
+      - Ich möchte mich über den Ablauf beschweren
+      - Das hat überhaupt nicht geklappt!
+      - Das war einfach schlecht organisiert
+
+  - intent: feedback
+    examples: |
+      - Ich wollte nur sagen, das war super!
+      - Ich wollte euch ein Lob dalassen
+      - Das war richtig gut gelöst!
+      - Ich bin echt zufrieden, danke!
+      - Das wollte ich euch mal sagen: top!
+      - Einfach mal ein großes Dankeschön!
+      - Ihr macht einen tollen Job!
+      - Weiter so, ich bin begeistert!
+      - Dankeschön, ihr seid die besten! 
+
+  - intent: book_appointment
+    examples: |
+      - Ich möchte einen Termin buchen
+      - Ich brauche einen Termin für eine Beratung
+      - Bitte Terminvereinbarung
+      - Ich will einen Termin bei euch
+      - Termin buchen
+      - Wann kann ich einen Termin bekommen?
+      - Ich hätte gerne einen Termin nächste Woche
+      - Kann ich morgen einen Termin bekommen?
+      - Ich würde gerne einen Termin buchen am Dienstag um 11 Uhr
+      - Ich brauche am [Dienstag](date) um [14 Uhr](time) einen Termin für ein [Softwareproblem](appointment_reason)
+      - Termin bitte [morgen](date) um [11 Uhr](time)
+      - Ich hätte gerne einen Termin am [Freitag](date) gegen [10:30 Uhr](time)
+      - Am [Montag](date) um [15 Uhr](time) passt mir gut
+      - Ich brauche am [Dienstag](date) um [14 Uhr](time) einen Termin für ein [Softwareproblem](appointment_reason)
+      - Ich möchte am [Freitag](date) um [10 Uhr](time) einen Termin für eine [Beratung](appointment_reason)
+      - Ich hätte gerne um [15 Uhr](time) am [Montag](date) einen Termin wegen [Netzwerkproblemen](appointment_reason)
+      - Kann ich am [Samstag](date) um [9 Uhr](time) einen Termin für eine [Installation](appointment_reason) bekommen?
+      - Ich brauche am [Dienstag](date) um [14 Uhr](time) einen Termin für ein [Softwareproblem](appointment_reason)
+      - Ich möchte am [Freitag](date) um [9 Uhr](time) einen Termin wegen [Netzwerkproblemen](appointment_reason)
+      - Termin für [Beratung](appointment_reason) am [Montag](date) um [10 Uhr](time)
+      - Ich möchte einen Termin am [5. Januar](date)
+      - Termin bitte am [12. Februar](date)
+      - Ich hätte gerne einen Termin am [30. März](date)
+      - Am [22. April](date) um [14 Uhr](time)
+      - Ich brauche einen Termin am [18. Mai](date)
+      - Einen Termin am [5. Juni](date) um [10:30 Uhr](time)
+      - Ich will am [9. Juli](date) einen Termin für [Softwareproblem](appointment_reason)
+      - Termin am [31. August](date)
+      - Ich will am [1. September](date) einen Termin
+      - Am [24. Oktober](date)
+      - Ich brauche am [11. November](date) einen Termin
+      - Ich hätte gern am [25. Dezember](date) einen Termin
+      - Ich möchte einen Termin am [5. Januar](date)
+      - Ich brauche am [14. Februar](date) einen Termin
+      - Ich hätte gerne am [3. März](date) einen Termin
+      - Termin bitte am [22. April](date)
+      - Ich will am [10. Mai](date) einen Termin
+      - Ich brauche einen Termin am [30. Juni](date)
+      - Termin am [6. Juli](date)
+      - Ich hätte gerne einen Termin am [9. August](date)
+      - Ich brauche Hilfe am [1. September](date)
+      - Am [12. Oktober](date) würde es mir passen
+      - Ich hätte gern am [25. November](date) einen Termin
+      - Ich brauche einen Termin am [31. Dezember](date)
+      - Ich brauche einen Termin am [28.03.2025](date)
+      - Termin für [Softwareentwicklung](appointment_reason) am [25.02.2025](date) um [14:30 Uhr](time)
+      - Ich hätte gern einen Termin für [Beratung](appointment_reason) am [01.05.2025](date)
+      - Termin am [5. Mai](date)
+      - Am [12. Juni 2025](date)
+      - Für den [14.07.2025](date)
+      - Ich will einen Vor-Ort-Termin buchen
+      - Ich brauche einen Termin im Büro
+      - Ich möchte ein persönliches Gespräch vor Ort
+      - Ich brauche einen Termin für eine [Netzwerkinstallation](appointment_reason)
+      - Ich möchte eine [IT-Beratung](appointment_reason)
+      - Ich brauche Hilfe wegen einem [Hardwaredefekt](appointment_reason)
+      - Es geht um [WLAN-Probleme](appointment_reason)
+      - Ich brauche einen Termin zur [Neueinrichtung](appointment_reason)
+      - Ich hätte gerne Unterstützung bei einer [Sicherheitsprüfung](appointment_reason)
+      - Ich möchte einen Termin für [Druckerprobleme](appointment_reason)
+      - Ich brauche Hilfe bei der [Servereinrichtung](appointment_reason)
+
+  - intent: cancel_appointment
+    examples: |
+      - Ich muss den Termin absagen
+      - Termin bitte stornieren
+      - Ich kann den Termin leider nicht wahrnehmen
+      - Bitte den Termin löschen
+      - Ich schaffe es nicht zum Termin
+      - Muss den Termin verschieben oder absagen
+      - Termin bitte abbrechen
+      - Ich brauche den Termin doch nicht
+      - Der Termin passt mir nicht mehr
+
+  - intent: smalltalk
+    examples: |
+      - Wie geht's dir?
+      - Was machst du so?
+      - Alles klar bei dir?
+      - Na, wie läuft’s bei dir?
+      - Was geht ab?
+      - Wie ist die Lage?
+      - Alles fit im Schritt?
+      - Na du, was treibst du so?
+      - Was gibt’s Neues bei dir?
+      - Wie läuft dein Tag?
+
+  - intent: goodbye
+    examples: |
+      - Tschüss
+      - Auf Wiedersehen
+      - Bis bald
+      - Mach’s gut
+      - Bis später
+      - Ciao
+      - Man sieht sich
+      - Ich bin dann mal weg
+      - Hab noch einen schönen Tag
+      - Wir hören uns
+
+  - intent: ask_email
+    examples: |
+      - Wie lautet eure E-Mail?
+      - Wohin soll ich schreiben?
+      - Könnt ihr mir eure E-Mail-Adresse geben?
+      - Wie lautet eure Support-Mail?
+      - An wen schicke ich meine Anfrage?
+      - Habt ihr eine Mailadresse?
+      - Gibt es eine E-Mail für technische Anliegen?
+      - Wohin sende ich meine Nachricht?
+      - Wie ist eure Kontaktadresse per Mail?
+
+  - intent: ask_phone
+    examples: |
+      - Wie ist eure Hotline-Nummer?
+      - Kann ich euch anrufen?
+      - Habt ihr eine Telefonnummer?
+      - Wie kann ich euch telefonisch erreichen?
+      - Gibt es eine Hotline?
+      - Kann ich bei euch anrufen?
+      - Habt ihr einen Telefondienst?
+      - Unter welcher Nummer seid ihr erreichbar?
+      - Wie lautet eure Nummer?
+
+  - intent: technical_issue
+    examples: |
+      - Mein Computer geht nicht
+      - Ich habe ein technisches Problem
+      - Mein Internet funktioniert nicht
+      - Ich habe ein Problem mit der Software
+      - Der Drucker reagiert nicht mehr
+      - Mein Bildschirm bleibt schwarz
+      - Das System stürzt ständig ab
+      - Mein Gerät macht komische Geräusche
+      - Ich komme nicht ins Netzwerk
+
+  - intent: request_callback
+    examples: |
+      - Könnt ihr mich zurückrufen?
+      - Bitte Rückruf
+      - Ich hätte gerne einen Rückruf
+      - Könnt ihr mich telefonisch erreichen?
+      - Ich wünsche einen Rückruf
+      - Könnt ihr mich um [15:30 Uhr](time) unter [01761234567](phone_number) zurückrufen?
+      - Rückruf bitte unter [0151 23456789](phone_number) gegen [16 Uhr](time)
+      - Bitte ruft mich unter [017699988877](phone_number) an
+      - Bitte um Rückruf
+      - Könnt ihr mich bitte anrufen?
+      - Rückruf bitte
+      - Ich möchte zurückgerufen werden
+      - Bitte ruft mich telefonisch zurück
+      - Ich möchte nicht vorbeikommen, nur telefonieren
+      - Ich brauche einen Rückruf, kein Vor-Ort-Termin
+
+  - intent: reset_password
+    examples: |
+      - Ich habe mein Passwort vergessen
+      - Passwort zurücksetzen
+      - Ich kann mich nicht mehr einloggen
+      - Mein Passwort funktioniert nicht
+      - Wie kann ich mein Passwort ändern?
+      - Zugang verloren - was tun?
+      - Ich brauche ein neues Passwort
+      - Passwort vergessen, was jetzt?
+      - Hilfe, mein Login geht nicht mehr
+
+  - intent: job_openings
+    examples: |
+      - Habt ihr offene Stellen?
+      - Gibt es Jobs bei euch?
+      - Bietet ihr gerade Jobs an?
+      - Welche Stellen sind aktuell frei?
+      - Sucht ihr neue Mitarbeiter?
+      - Ich interessiere mich für eine Stelle
+      - Gibt es aktuelle Jobangebote?
+      - Nehmt ihr gerade Bewerbungen an?
+      - Welche Positionen habt ihr offen?
+
+  - intent: apply_job
+    examples: |
+      - Wie bewerbe ich mich?
+      - Ich möchte mich bewerben
+      - Wie kann ich mich bewerben?
+      - Gibt es ein Bewerbungsformular?
+      - Ich will meine Bewerbung einreichen
+      - Wohin schicke ich meine Unterlagen?
+      - Was muss ich für eine Bewerbung tun?
+      - An wen richte ich meine Bewerbung?
+      - Ich möchte mich online bewerben
+
+  - intent: faq_payment
+    examples: |
+      - Wie kann ich bezahlen?
+      - Welche Zahlungsmethoden gibt es?
+      - Welche Zahlungsmittel akzeptiert ihr?
+      - Kann ich per Rechnung zahlen?
+      - Geht auch PayPal?
+      - Was sind eure Bezahloptionen?
+      - Wie läuft die Zahlung ab?
+      - Bietet ihr Ratenzahlung an?
+      - Kann ich auch bar zahlen?
+
+  - intent: faq_delivery
+    examples: |
+      - Wie lange dauert der Versand?
+      - Wann wird geliefert?
+      - Wann kommt meine Bestellung an?
+      - Wie schnell wird geliefert?
+      - Was ist die Lieferzeit?
+      - Wann kann ich mit der Lieferung rechnen?
+      - Wie lange dauert es, bis es ankommt?
+      - Kommt das per Post oder Paketdienst?
+      - Ist Expressversand möglich?
+
+  - intent: track_request
+    examples: |
+      - Wie ist der Stand meiner Anfrage?
+      - Ich möchte mein Ticket verfolgen
+      - Gibt es ein Update zu meiner Anfrage?
+      - Wie ist der Status meiner Anfrage?
+      - Hat sich bei meinem Ticket etwas getan?
+      - Gibt’s Neuigkeiten zu meinem Fall?
+      - Wie weit ist meine Anfrage bearbeitet?
+      - Könnt ihr mir ein Update geben?
+      - Ich warte noch auf Rückmeldung
+      - Wie ist der aktuelle Stand?
+
+  - intent: cancel_request
+    examples: |
+      - Ich möchte meine Anfrage stornieren
+      - Bitte löscht meine Anfrage
+      - Ich brauche das nicht mehr
+      - Ich ziehe meine Anfrage zurück
+      - Bitte brecht das ab
+      - Ich hab's mir anders überlegt
+      - Löscht bitte mein Anliegen
+      - Ich möchte die Anfrage zurückziehen
+      - Kein Bedarf mehr - bitte stornieren
+      - Ich will das nicht mehr
+
+  - intent: change_appointment
+    examples: |
+      - Ich möchte den Termin ändern
+      - Können wir den Termin verschieben?
+      - Ich brauche einen neuen Termin
+      - Der Termin passt mir nicht mehr
+      - Können wir einen neuen Zeitpunkt finden?
+      - Ich würde gerne einen anderen Termin nehmen
+      - Ich möchte den Termin verschieben
+      - Der Termin muss verlegt werden
+      - Bitte Termin ändern
+      - Gibt es einen anderen Termin für mich?
+
+  - intent: reschedule_appointment
+    examples: |
+      - Der Termin passt nicht mehr
+      - Ich würde gerne verschieben
+      - Können wir einen neuen Zeitpunkt finden?
+      - Können wir den Termin neu festlegen?
+      - Ich brauche einen anderen Zeitpunkt
+      - Termin bitte umplanen
+      - Ich kann an dem Termin leider nicht
+      - Müssen wir den Termin verschieben?
+      - Wäre ein neuer Termin möglich?
+      - Ich brauche einen Ausweichtermin
+
+  - intent: thank_you
+    examples: |
+      - Danke dir!
+      - Vielen Dank!
+      - Super, das hilft!
+      - Danke nochmal!
+      - Echt nett von euch!
+      - Hat mir sehr geholfen
+      - Ich bin euch dankbar
+      - Vielen lieben Dank!
+      - Das war super hilfreich!
+      - Echt top, danke!
+      - Danke
+      - Vielen Dank!
+      - Dankeschön
+      - Ich danke euch
+      - Super, danke!
+      - Echt nett, danke!
+      - Vielen lieben Dank
+      - Danke für die Hilfe
+
+  - intent: not_satisfied
+    examples: |
+      - Das war nicht hilfreich
+      - Ich bin nicht zufrieden
+      - Ich habe mir mehr erwartet
+      - Das hilft mir nicht weiter
+      - Ich bin enttäuscht
+      - Leider nicht das, was ich gebraucht habe
+      - Hat mein Problem nicht gelöst
+      - Damit komme ich nicht klar
+      - Ich hätte mehr erwartet
+      - Nicht zufriedenstellend
+
+  - intent: satisfied
+    examples: |
+      - Das war klasse!
+      - Ich bin zufrieden
+      - Alles perfekt, danke
+      - Alles bestens!
+      - Bin total zufrieden
+      - Super gemacht, danke!
+      - Läuft bei euch!
+      - Toller Support, danke!
+      - Das war echt hilfreich!
+      - Hat alles gepasst!
+
+  - intent: ask_language
+    examples: |
+      - Welche Sprachen unterstützt ihr?
+      - Kann ich auf Englisch schreiben?
+      - Gibt es eine andere Sprache?
+      - Welche Sprachen gibt es zur Auswahl?
+      - Unterstützt ihr auch andere Sprachen?
+      - Kann ich mit euch auf Französisch reden?
+      - Gibt’s auch Türkisch?
+      - Ich würde lieber auf Englisch weitermachen
+      - Welche Sprache kann ich einstellen?
+      - Kann man auf Arabisch schreiben?
+
+  - intent: switch_to_human
+    examples: |
+      - Ich will mit einem echten Mitarbeiter sprechen
+      - Kann mich jemand anrufen?
+      - Ich möchte mit einer Person reden
+      - Ich will mit jemandem echten reden
+      - Bitte verbinden Sie mich mit einem Menschen
+      - Ich brauche persönlichen Kontakt
+      - Das hilft mir nicht – ich will mit einer Person sprechen
+      - Gibt es jemanden, der mich zurückrufen kann?
+      - Ich komme so nicht weiter, bitte Mensch
+      - Ich hätte gern direkten Kontakt
+
+  - intent: restart_conversation
+    examples: |
+      - Lass uns nochmal von vorne anfangen
+      - Start neu bitte
+      - Neustart des Gesprächs
+      - Bitte nochmal ganz von vorne
+      - Ich will das Gespräch zurücksetzen
+      - Startet das nochmal
+      - Von Anfang bitte
+      - Alles nochmal neu
+      - Beginne bitte das Gespräch neu
+      - Gespräch komplett neu starten
+
+  - intent: cancel_form
+    examples: |
+      - Abbrechen
+      - Stopp
+      - Ich will keinen Termin mehr
+      - Vergiss es
+      - Ich möchte doch keinen Rückruf
+      - Ich will das Formular abbrechen
+      - Lass gut sein
+      - Ich möchte abbrechen
+      - Ich will das nicht mehr ausfüllen
+      - Das bringt nichts, abbrechen
+      - Ich brech das mal ab
+      - Bitte beenden
+      - Ich hab's mir anders überlegt
+
+  - intent: cancel_callback
+    examples: |
+      - Ich brauche doch keinen Rückruf
+      - Rückruf bitte abbrechen
+      - Ich möchte keinen Rückruf mehr
+      - Bitte storniert den Rückruf
+      - Stopp, kein Rückruf
+      - Kein Rückruf nötig
+      - Vergesst den Rückruf
+      - Ich brauche keinen Rückruf mehr
+      - Rückruf ist nicht mehr nötig
+      - Bitte löscht den Rückruf
+      - Ich will doch keinen Anruf
+      - Das mit dem Rückruf hat sich erledigt
+
+  - intent: deny
+    examples: |
+      - Nein
+      - Nein, danke
+      - lieber nicht
+      - nicht nötig
+      - kein Bedarf
+      - passt schon
+      - brauch ich nicht
+
+  - regex: time
+    examples: |
+      - \d{1,2}:\d{2}
+      - \d{1,2} Uhr
+      - um \d{1,2} Uhr
+      - \d{1,2}\.\d{2}
+      - \d{1,2}h
+
+  - regex: phone_number
+    examples: |
+      - \+?\d{10,15}
+      - \(?\d{3,4}\)?[-.\s]?\d{3,4}[-.\s]?\d{3,4}
+
+  - regex: date
+    examples: |
+      - \d{1,2}\.\d{1,2}\.\d{2,4}            # z.B. 14.06.25 oder 14.6.2025
+      - \d{1,2}\.\s?(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)
+      - (am |den )?\d{1,2}\.\s?(Januar|Februar|März|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)

@@ -1,0 +1,152 @@
+version: "3.1"
+
+stories:
+  - story: greet and ask for services
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: services
+      - action: action_check_service
+
+  - story: services inquiry
+    steps:
+      - intent: services
+      - action: action_check_service
+
+  - story: ask for contact
+    steps:
+      - intent: contact
+      - action: utter_contact
+
+  - story: ask for opening hours
+    steps:
+      - intent: opening_hours
+      - action: utter_opening_hours
+  - story: user gibt Feedback
+    steps:
+      - intent: feedback
+      - action: utter_feedback
+
+  - story: user beschwert sich
+    steps:
+      - intent: complaint
+      - action: utter_complaint
+
+  - story: user will Termin buchen
+    steps:
+      - intent: book_appointment
+      - action: appointment_form
+      - active_loop: appointment_form
+
+  - story: user schließt Terminbuchung ab
+    steps:
+      - action: appointment_form
+      - active_loop: null
+      - action: utter_submit_appointment_form
+
+  - story: benutzer bedankt sich
+    steps:
+      - intent: thank_you
+      - action: utter_thank_you
+
+  - story: benutzer fragt nach E-Mail
+    steps:
+      - intent: ask_email
+      - action: utter_ask_email
+
+  - story: benutzer meldet technisches problem
+    steps:
+      - intent: technical_issue
+      - action: utter_technical_issue
+
+  - story: benutzer fragt nach jobangeboten
+    steps:
+      - intent: job_openings
+      - action: utter_job_openings
+
+  - story: benutzer will passwort zurücksetzen
+    steps:
+      - intent: reset_password
+      - action: utter_reset_password
+
+  - story: user fragt nach Telefonnummer
+    steps:
+      - intent: ask_phone
+      - action: utter_ask_phone
+
+  - story: user verabschiedet sich
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: user will sich bewerben
+    steps:
+      - intent: apply_job
+      - action: utter_apply_job
+
+  - story: user fragt nach zahlung
+    steps:
+      - intent: faq_payment
+      - action: utter_faq_payment
+
+  - story: user fragt nach lieferung
+    steps:
+      - intent: faq_delivery
+      - action: utter_faq_delivery
+
+  - story: user möchte tracking
+    steps:
+      - intent: track_request
+      - action: utter_track_request
+
+  - story: user storniert anfrage
+    steps:
+      - intent: cancel_request
+      - action: utter_cancel_request
+
+  - story: user will termin ändern
+    steps:
+      - intent: change_appointment
+      - action: utter_change_appointment
+
+  - story: user verschiebt termin
+    steps:
+      - intent: reschedule_appointment
+      - action: utter_reschedule_appointment
+
+  - story: user ist unzufrieden
+    steps:
+      - intent: not_satisfied
+      - action: utter_not_satisfied
+
+  - story: user ist zufrieden
+    steps:
+      - intent: satisfied
+      - action: utter_satisfied
+
+  - story: user fragt nach sprache
+    steps:
+      - intent: ask_language
+      - action: utter_ask_language
+
+  - story: user will mit mensch sprechen
+    steps:
+      - intent: switch_to_human
+      - action: utter_switch_to_human
+
+  - story: user startet neu
+    steps:
+      - intent: restart_conversation
+      - action: utter_restart_conversation
+
+  - story: user will rückruf
+    steps:
+      - intent: request_callback
+      - action: callback_form
+      - active_loop: callback_form
+
+  - story: user schließt rückruf ab
+    steps:
+      - action: callback_form
+      - active_loop: null
+      - action: utter_submit_callback_form
